@@ -2,20 +2,20 @@ package com.mak.consumer.model;
 
 import java.time.LocalDateTime;
 
-import javax.validation.constraints.NotBlank;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Data
 public class EmpRequset {
 	
 	@NotBlank(message = "name can not be blank")
+	@JsonProperty("name")
 	String name;
 	
-	//@JsonProperty("emp_salary")
+	@JsonProperty("emp_salary")
 	Integer salary;
 	
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")

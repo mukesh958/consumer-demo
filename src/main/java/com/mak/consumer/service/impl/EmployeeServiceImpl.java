@@ -1,5 +1,6 @@
 package com.mak.consumer.service.impl;
 
+import java.util.Date;
 import java.util.concurrent.CompletableFuture;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,12 +28,15 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Autowired
 	EmployeeClient employeeClient;
 	
+	
 	@Override
 	public String saveEmployee(EmpRequset emp) {
 		String url=baseURL+saveEmployee;
-		
+		 System.out.println("saveEmployee method called "+new Date());
 		return restTemplate.postForObject(url, emp, String.class);
 	}
+	
+	
 	@Override
 	public Integer getAllAvalEmpList() {
 		System.out.println("Service called");
