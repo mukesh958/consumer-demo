@@ -47,6 +47,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 			System.out.println("i= "+i);
 			CompletableFuture<Boolean> res=employeeClient.employeeCount();
 			try {
+				Boolean boolean1 = res.get();
 				System.out.println("=== "+res.get());
 				empcount++;
 			} catch (Exception e) {

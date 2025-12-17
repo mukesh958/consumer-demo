@@ -1,16 +1,24 @@
-
-
 server:
   port: 8090
   servlet:
     context-path: /consumer-demo
-    
-springbootURL:   
-        baseURL: http://localhost:8080/springootbasic
-        saveEmployee:  /v1/rest/employee
-        
+
+springbootURL:
+  baseURL: http://localhost:8080/springootbasic
+  saveEmployee: /v1/rest/employee
+
 spring:
   zipkin:
-    base-url: http://localhost:9411/     
+    base-url: http://localhost:9411/
   application:
     name: Consumer
+
+management:
+  health:
+    show-details: always
+    circuitbreakers:
+      enabled: true
+  endpoints:
+    exposure:
+      include: health,info,circuitbreakers
+
