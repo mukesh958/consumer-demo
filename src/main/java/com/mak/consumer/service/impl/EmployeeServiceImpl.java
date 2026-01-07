@@ -43,12 +43,13 @@ public class EmployeeServiceImpl implements EmployeeService {
 		int empcount=0;
 		int errorCount=0;
 		long start=System.currentTimeMillis();
-		for(int i=0;i<20;i++) {
+		for(int i=0;i<1;i++) {
 			System.out.println("i= "+i);
-			CompletableFuture<Boolean> res=employeeClient.employeeCount();
+			employeeClient.employeeCounts();
+			//CompletableFuture<Boolean> res=employeeClient.employeeCount();
 			try {
-				Boolean boolean1 = res.get();
-				System.out.println("=== "+res.get());
+				//Boolean boolean1 = res.get();
+				//System.out.println("=== "+res.get());
 				empcount++;
 			} catch (Exception e) {
 				errorCount++;

@@ -8,11 +8,16 @@ springbootURL:
   saveEmployee: /v1/rest/employee
 
 spring:
+  config:
+    import: "optional:configserver:"
+  application:
+    name: CONSUMER-SERVICE
   zipkin:
     base-url: http://localhost:9411/
-  application:
-    name: Consumer
-
+  cloud:
+    config:
+      uri:
+      - http://localhost:9196/
 management:
   health:
     show-details: always
@@ -21,4 +26,3 @@ management:
   endpoints:
     exposure:
       include: health,info,circuitbreakers
-
